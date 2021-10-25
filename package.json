@@ -1,0 +1,35 @@
+{
+  "name": "yammieapi",
+  "version": "1.0.0",
+  "description": "'RESTful YammieAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OzHog/YammieAPI.git"
+  },
+  "keywords": [
+    "RESTful",
+    "API"
+  ],
+  "author": "Oz Hogeg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OzHog/YammieAPI/issues"
+  },
+  "homepage": "https://github.com/OzHog/YammieAPI#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "dependencies": {
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "mocha": "^9.1.3",
+    "mockgoose": "^8.0.4",
+    "mongoose": "^6.0.12",
+    "supertest": "^6.1.6",
+    "winston": "^3.3.3"
+  }
+}
