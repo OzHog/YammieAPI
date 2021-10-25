@@ -1,5 +1,5 @@
 # YammieAPI #
-Rest API backend for restaurant.
+Rest API backend for restaurant using Node.js and MongoDB.
  
  ### Server Functionality ###
   - Save new order
