@@ -2,15 +2,7 @@ const orders = require("../controllers/yammieController");
 const logger = require("../../utils/logger");
 
 const routes = (app) => {
-  app
-    .route("/orders")
-    .get(orders.lastDayOrders)
-    .post(orders.createOrder)
-    .delete(orders.deleteAllOrder); //used for testing
-
-  app.route("/orders/all").get(orders.listAllOrders); //used for testing
-
-  app.route("/orders/:orderId").delete(orders.deleteOrder); //used for testing
+  app.route("/orders").get(orders.lastDayOrders).post(orders.createOrder);
 
   //middleware - 404 path not found
   app.use((req, res) => {
@@ -23,7 +15,7 @@ const routes = (app) => {
     );
   });
 
-  //middleware - 500 Server Error
+  //middleware - 500 server error
   app.use((req, res) => {
     res.status(500).json({
       message: "Server Error",

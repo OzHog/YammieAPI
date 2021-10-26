@@ -16,12 +16,4 @@ const { createLogger, format, transports } = require("winston");
   ),
 });
 
-// exports.log(type, httpStatus, httpRequest, requestIP, extraData)
-// {
-//   switch(type){
-//     case "info":
-
-//   }
-// }
-
 module.exports = logger
