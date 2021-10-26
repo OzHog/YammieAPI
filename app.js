@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const Orders = require("./api/models/yammieModel"); //created model loading here
 const routes = require("./api/routes/yammieRoutes");
-
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));

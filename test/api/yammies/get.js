@@ -2,7 +2,6 @@ process.env.NODE_ENV = "test";
 
 const expect = require("chai").expect;
 const request = require("supertest");
-
 const app = require("../../../app");
 const db = require("../../../db/yammieDB");
 
@@ -14,15 +13,12 @@ describe("GET /orders", () => {
   });
 
   after((done) => {
-    request(app)
-      .delete("/orders/")
-      .then((res) => {
-        db.close().then(() => done());
-      })
+    db.close()
+      .then(() => done())
       .catch((err) => done(err));
   });
 
-  it("OK, getting orders from today (empty array)", (done) => {
+  it("OK, getting orders from last day (empty array)", (done) => {
     request(app)
       .get("/orders")
       .then((res) => {
@@ -34,7 +30,7 @@ describe("GET /orders", () => {
       .catch((err) => done(err));
   });
 
-  it("OK, getting orders from today", (done) => {
+  it("OK, getting orders from  last day", (done) => {
     //add new order from today
     request(app)
       .post("/orders")
@@ -90,8 +86,9 @@ describe("GET /orders", () => {
       .get("/ord")
       .then((res) => {
         const body = res.body;
-        
-        expect(body.path).to.equal("/ord not found");
+
+        expect(body.path).to.equal("/ord");
+        expect(body.message).to.equal("Path Not Found");
         done();
       })
       .catch((err) => done(err));

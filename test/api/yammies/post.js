@@ -7,6 +7,7 @@ const app = require("../../../app");
 const db = require("../../../db/yammieDB");
 
 describe("POST /orders", () => {
+  
   before((done) => {
     db.connect()
       .then(() => done())
@@ -14,11 +15,8 @@ describe("POST /orders", () => {
   });
 
   after((done) => {
-    request(app)
-      .delete("/orders/")
-      .then((res) => {
-        db.close().then(() => done());
-      })
+    db.close()
+      .then(() => done())
       .catch((err) => done(err));
   });
 
