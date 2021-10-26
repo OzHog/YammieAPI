@@ -2,13 +2,16 @@ const app = require("./app");
 const db = require("./db/yammieDB");
 const logger = require('./utils/logger');
 
-const port = process.env.PORT || 3000;
-const host = "localhost";
+const PORT = process.env.PORT || 3000;
+const HOST = "localhost";
 
 db.connect()
   .then(() => {
     app.listen(port, () => {
-      logger.info(`Yammie orders RESTful API server started and running on http://${host}:${port}`);
+      logger.info(`Yammie orders RESTful API server started and running on http://${HOST}:${PORT}`);
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    db.close();
+    logger.info(`${err}`);
+  });
